@@ -1,0 +1,28 @@
+.google-icon{
+    cursor: pointer;
+    background-color: #B4855C;
+    color: white;
+    padding: 8px;
+    border-radius: 4px;
+    transition: .4s;
+}
+
+.btn-color{
+    background-color: #B4855C;
+    color: white;
+}
+
+.register-text{
+    color: #B4855C;
+    text-decoration: none;
+    transition: .2s;
+}
+
+.btn-color:hover, .google-icon:hover {
+    background-color: #5D444E;
+    color: white;
+}
+
+.register-text:hover{
+    color: #5D444E;
+}

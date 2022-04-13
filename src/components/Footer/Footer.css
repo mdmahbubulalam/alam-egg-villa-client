@@ -1,0 +1,59 @@
+
+.footer-bg-one{
+    background-color: #373B3D;
+    padding-top:50px;
+    padding-bottom:30px;
+}
+
+.footer-bg-two{
+    background-color: #292C2E;
+    padding-top:50px;
+    padding-bottom:30px;
+}
+
+.working-hours{
+    list-style: none;
+    padding-left: 0px;
+}
+
+.social-media .icon{
+    height: 40px;
+    width: 40px;
+    color: #B4855C;
+    border-radius: 50%;
+    border: 1px solid #B4855C;
+    padding: 10px;
+    transition: 0.4s;
+}
+
+.social-media .icon:hover{
+    background-color: #5D444E;
+    color: white;
+}
+
+.text-color{
+    color: #1F8B76;
+    transition: 0.4s;
+    cursor: pointer;
+    font-weight: bolder;
+}
+
+.text-color:hover{
+    color: whitesmoke;
+}
+
+.text-link{
+    text-decoration: none;
+    color: white;
+    transition: 0.4s;
+}
+
+.text-link:hover{
+    color: #1F8B76;
+}
+
+.contact-icon{
+    color: #1F8B76;
+    font-size: larger;
+    font-weight: bold;
+}

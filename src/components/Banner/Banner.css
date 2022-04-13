@@ -1,0 +1,81 @@
+.banner-image-one{
+    background-image: url(../../assets/banner/slide-1.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.banner-image-two{
+    background-image: url(../../assets/banner/slide-2.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.shop-banner-image{
+    background-image: url(../../assets/banner/shop-banner-image.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.text{
+    padding: 12%;
+}
+
+.text h4{
+    font-weight: bold;
+}
+
+.text h1{
+    font-size: 100px;
+    font-weight: bolder;
+}
+
+.text p{
+    font-size: 20px;
+    max-width: 50%;
+}
+
+.text-padding{
+    padding: 200px;
+}
+
+.text-padding h1 {
+    font-size: 60px;
+    font-weight: bolder;
+    color: white;
+}
+
+.text {
+    color: white;
+}
+
+@media screen and (max-width: 1000px) {
+
+    .text h4{
+        font-size: 15px;
+    }
+    
+    .text h1{
+        font-size: 45px;
+    }
+    
+    .text p{
+        font-size: 15px;
+        max-width: 75%;
+    }
+    .btn-responsive{
+        width: 100px;
+        height: 40px;
+        font-size: 13px;
+    }
+
+    .text{
+        padding: 15%;
+    }
+    
+}
