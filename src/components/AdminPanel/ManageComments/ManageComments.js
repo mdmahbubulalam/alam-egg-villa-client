@@ -8,7 +8,7 @@ const ManageComments = () => {
     const [successMessage, setSuccessMessage] = useState('');
 
     let count = 1
-    const url = 'http://localhost:5000/allComments'
+    const url = 'https://boiling-escarpment-47375.herokuapp.com/allComments'
     useEffect(() => {
         fetch(url)
         .then(res => res.json())
@@ -17,7 +17,7 @@ const ManageComments = () => {
 
     const handleCommentDelete = (id) => {
 
-        const url = `http://localhost:5000/deleteComment/${id}`;
+        const url = `https://boiling-escarpment-47375.herokuapp.com/deleteComment/${id}`;
         fetch(url,{
             method:'DELETE'
           }) 
@@ -52,6 +52,9 @@ const ManageComments = () => {
                 </ul>
                 </div>
                 <h5 className='text-success text-center'>{successMessage}</h5>
+                {
+                    allComments.length ?
+                
                 <table className="table bg-light table-bordered table-responsive">
                         <thead>
                             <tr>
@@ -79,6 +82,9 @@ const ManageComments = () => {
                         )}
                         
                     </table>
+                    :
+                    <h5 className='text-warning text-center'>No one has commented yet !!!</h5>
+                    }
                 </div>
             </div>
         </div>

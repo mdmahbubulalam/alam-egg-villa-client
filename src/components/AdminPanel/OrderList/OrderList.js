@@ -26,7 +26,7 @@ const OrderList = () => {
 
 
     
-    const url = 'http://localhost:5000/orders'
+    const url = 'https://boiling-escarpment-47375.herokuapp.com/orders'
     useEffect(() => {
         fetch(url, {
             method:'GET',
@@ -51,7 +51,7 @@ const OrderList = () => {
         const modifiedStatus = { id, status }
         
 
-        const url = `http://localhost:5000/updateOrderStatus/` 
+        const url = `https://boiling-escarpment-47375.herokuapp.com/updateOrderStatus/` 
         fetch(url, {
             method:'PATCH',
             headers : {
@@ -65,7 +65,7 @@ const OrderList = () => {
 
     const handleOrderDelete = (id) => {
 
-        const url = `http://localhost:5000/deleteOrder/${id}`;
+        const url = `https://boiling-escarpment-47375.herokuapp.com/deleteOrder/${id}`;
         fetch(url,{
             method:'DELETE'
           })  
@@ -103,6 +103,9 @@ const OrderList = () => {
                 </div>
                 <h5 className='text-success text-center'>{statusSuccessMessage}</h5>
                 <h5 className='text-success text-center'>{successMessage}</h5>
+                {
+                    orders.length ?
+                
                     <table class="table bg-light table-responsive">
                         <thead>
                             <tr>
@@ -140,6 +143,9 @@ const OrderList = () => {
                         )
                     }
                     </table>
+                    :
+                    <h5 className='text-warning text-center'>Order list is empty !!!</h5>
+                }
                 </div>
             </div>
             

@@ -25,6 +25,7 @@ const Header = (props) => {
 
       const {cart, onAdd, onRemove, countCartItems} = props;
       const productPrice = cart.reduce((a,c)=> a+ c.price * c.qty, 0);
+
       const shippingCost = productPrice> 2000 ? 30 : 50;
       const totalPrice =  productPrice + shippingCost;
     const history = useHistory();

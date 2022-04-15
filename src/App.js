@@ -31,13 +31,12 @@ import ManageComments from './components/AdminPanel/ManageComments/ManageComment
 import Shop from './components/Shop/Shop';
 import Footer from './components/Footer/Footer';
 import Search from './components/Search/Search';
-import AdminLogin from './components/AdminPanel/AdminLogin/AdminLogin';
 import Dashboard from './components/AdminPanel/Dashboard/Dashboard';
 import NoMatch from './components/NoMatch/NoMatch';
 
 
 export const UserContext = createContext()
-const cartFromLocalStorage = JSON.parse(localStorage.getItem('cart')) || '[]'
+const cartFromLocalStorage = JSON.parse(localStorage.getItem('cart')) || []
 
 function App() {
   const [adminUsers, setAdminUsers] = useState([]);
@@ -47,7 +46,7 @@ function App() {
   const [discountPrice, setDiscountPrice] = useState([]);
   const [loggedInUser, setLoggedInUser] = useState({})
 
-  const url = 'http://localhost:5000/products'
+  const url = 'https://boiling-escarpment-47375.herokuapp.com/products'
 
   useEffect(() => {
     fetch(url)
@@ -77,7 +76,7 @@ function App() {
     localStorage.setItem('cart', JSON.stringify(cart))
   },[cart])
 
-  const allAdminUserUrl = 'http://localhost:5000/adminUsers'
+  const allAdminUserUrl = 'https://boiling-escarpment-47375.herokuapp.com/adminUsers'
   useEffect(() => {
     fetch(allAdminUserUrl)
     .then(res => res.json())
@@ -144,24 +143,21 @@ function App() {
           <PrivateRoute path="/profile">
             <Profile  />
           </PrivateRoute>
-          <Route path="/orderList">
-            <OrderList/>
-          </Route>
           <PrivateRoute path="/shipment">
             <Shipment />
           </PrivateRoute>
           <PrivateRoute path="/updateShipment/:shipmentId">
             <UpdateShipment />
           </PrivateRoute>
-          <Route path="/orders">
+          <PrivateRoute path="/orders">
             <Orders cart={cart} clearCart={clearCart}/>
-          </Route>
-          <Route path="/orderSuccessMessage">
+          </PrivateRoute>
+          <PrivateRoute path="/orderSuccessMessage">
             <OrderSuccessMessage/>
-          </Route>
-          <Route path="/orderDetails/:orderId">
+          </PrivateRoute>
+          <PrivateRoute path="/orderDetails/:orderId">
             <OrderDetails/>
-          </Route>
+          </PrivateRoute>
           <Route exact path="/">
             <Home onAdd={onAdd} products={products} discountPrice={discountPrice} oldProducts={oldProducts} />
           </Route>
@@ -179,6 +175,9 @@ function App() {
               <PrivateRoute path="/admin">
               <Admin/>
               </PrivateRoute>
+              <Route path="/orderList">
+                <OrderList/>
+              </Route>
               <Route path="/dashboard">
                 <Dashboard/>
               </Route>

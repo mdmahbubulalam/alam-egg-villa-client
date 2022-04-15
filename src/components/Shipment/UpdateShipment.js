@@ -21,7 +21,7 @@ const UpdateShipment = () => {
             phone
         }
  
-         const url = 'http://localhost:5000/updateShipment/'+shipmentId
+         const url = 'https://boiling-escarpment-47375.herokuapp.com/updateShipment/'+shipmentId
          fetch(url, {
              method:'PATCH',
              headers : {
@@ -36,7 +36,7 @@ const UpdateShipment = () => {
          
      };
 
-    const url = 'http://localhost:5000/shipment?email='+loggedInUser.email
+    const url = 'https://boiling-escarpment-47375.herokuapp.com/shipment?email='+loggedInUser.email
     useEffect(() => {
         fetch(url, {
             method:'GET',

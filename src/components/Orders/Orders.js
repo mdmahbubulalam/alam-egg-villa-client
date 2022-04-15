@@ -2,7 +2,6 @@ import React, { useContext, useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useHistory } from 'react-router-dom';
 import { UserContext } from '../../App';
-import ProcessStripePayment from '../ProcessStripePayment/ProcessStripePayment';
 
 const Orders = (props) => {
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
@@ -32,7 +31,7 @@ const Orders = (props) => {
             orderDate:new Date().toLocaleString()
         }
 
-        const url = `http://localhost:5000/addOrders`
+        const url = `https://boiling-escarpment-47375.herokuapp.com/addOrders`
         fetch(url, {
             method:'POST',
             headers : {
@@ -47,7 +46,7 @@ const Orders = (props) => {
           });     
      };
 
-    const url = 'http://localhost:5000/shipment?email='+loggedInUser.email
+    const url = 'https://boiling-escarpment-47375.herokuapp.com/shipment?email='+loggedInUser.email
 
     useEffect(() => {
         fetch(url, {
@@ -111,13 +110,13 @@ const Orders = (props) => {
                                     Cash on delivery
                                 </label>
                             </div>
-                            <div class="form-check mb-3">
+                            {/* <div class="form-check mb-3">
                                 <input {...register("payment", { required: true })} type="radio" value="Stripe" className='me-1' /> 
                                 <label class="form-check-label" for="Stripe">
                                     Stripe
                                 </label>
                                 
-                            </div>
+                            </div> */}
                             <button type="submit" className="btn btn-color w-100">Place order</button>
                         </form>
                     </div>          

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './Products.css'
 import { BsCart, BsSearch } from "react-icons/bs";
 import { useHistory } from 'react-router-dom';
+import { BallTriangle } from 'react-loader-spinner';
 
 
 const Products = (props) => {
@@ -17,10 +18,24 @@ const Products = (props) => {
     const handleProductDetails =(productId)=> {
         history.push(`/details=${productId}`)
       }
+
+     
     return (
         <div className='container'>
             <div className=" row ">
                 <h3 className='text-center mt-5'>New Products</h3>
+                {
+                    !recentProducts.length &&
+                    <div className='d-flex justify-content-center mt-5 mb-5'>
+                        <BallTriangle
+                            height="100"
+                            width="100"
+                            color='#B4855C'
+                            ariaLabel='loading'
+                        />
+                    </div>
+                }
+               
             {
                recentProducts.map(product => 
                 <div className='product-card col-lg-3 col-md-6 col-sm-12 col-12 '>
@@ -57,6 +72,19 @@ const Products = (props) => {
 
             <div className=" row ">
                 <h3 className='text-center mt-5'>Discount Price</h3>
+                {
+                    !maxDiscount.length &&
+                    <div className='d-flex justify-content-center mt-5 mb-5'>
+                        <BallTriangle
+                    height="100"
+                    width="100"
+                    color='#B4855C'
+                    ariaLabel='loading'
+                />
+                    </div>
+                    
+
+                }
             {
                maxDiscount.map(product => product.discount>0 &&
                 <div className='product-card col-lg-3 col-md-6 col-sm-12 col-12'>
@@ -85,6 +113,19 @@ const Products = (props) => {
 
             <div className=" row ">
                 <h3 className='text-center mt-5'>Old Products</h3>
+                {
+                    !olderProducts.length &&
+                    <div className='d-flex justify-content-center mt-5 mb-5'>
+                        <BallTriangle
+                    height="100"
+                    width="100"
+                    color='#B4855C'
+                    ariaLabel='loading'
+                />
+                    </div>
+                    
+
+                }
             {
                olderProducts.map(product =>
                 <div className='product-card col-lg-3 col-md-6 col-sm-12 col-12'>

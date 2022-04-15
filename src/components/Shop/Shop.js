@@ -3,6 +3,7 @@ import { useHistory } from 'react-router-dom';
 import { BsCart, BsSearch } from "react-icons/bs";
 import ShopBanner from '../Banner/ShopBanner';
 import ReactPaginate from 'react-paginate';
+import { BallTriangle } from 'react-loader-spinner';
 
 const Shop = (props) => {
     const {onAdd } = props;
@@ -31,7 +32,7 @@ const Shop = (props) => {
         setSort(e.target.value);
     }
 
-    const url = `http://localhost:5000/productsPaginate`
+    const url = `https://boiling-escarpment-47375.herokuapp.com/productsPaginate`
 
     useEffect(() =>
         fetch(url)
@@ -83,6 +84,20 @@ const Shop = (props) => {
                     </div>
                 </div>
                 <hr />
+
+                {
+                    !products.length &&
+                    <div className='d-flex justify-content-center mt-5 mb-5'>
+                        <BallTriangle
+                    height="100"
+                    width="100"
+                    color='#B4855C'
+                    ariaLabel='loading'
+                />
+                    </div>
+                    
+
+                }
            
                 {  
                 products.map(product => 

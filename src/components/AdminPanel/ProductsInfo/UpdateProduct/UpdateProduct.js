@@ -32,7 +32,7 @@ const UpdateProduct = () => {
         image: imgUrl
        }
 
-        const url = 'http://localhost:5000/updateProduct/'+productId
+        const url = 'https://boiling-escarpment-47375.herokuapp.com/updateProduct/'+productId
         fetch(url, {
             method:'PATCH',
             headers : {
@@ -51,7 +51,7 @@ const UpdateProduct = () => {
         }, 5000)
     })
     
-    const url = 'http://localhost:5000/products/'+productId
+    const url = 'https://boiling-escarpment-47375.herokuapp.com/products/'+productId
 
     useEffect(() => {
         fetch(url)

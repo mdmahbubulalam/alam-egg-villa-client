@@ -8,7 +8,7 @@ const ManageProduct = () => {
     const [successMessage, setSuccessMessage] = useState('');
     const [products, setProducts] = useState([]);
 
-    const url = 'http://localhost:5000/products'
+    const url = 'https://boiling-escarpment-47375.herokuapp.com/products'
     useEffect(() => {
         fetch(url)
         .then(res => res.json())
@@ -25,7 +25,7 @@ const ManageProduct = () => {
       }
 
       const handleDelete = (productId)=>{
-        const url = 'http://localhost:5000/delete/'+productId
+        const url = 'https://boiling-escarpment-47375.herokuapp.com/delete/'+productId
           fetch(url,{
             method:'DELETE'
           }) 

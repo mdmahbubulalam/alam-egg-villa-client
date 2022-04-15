@@ -15,7 +15,7 @@ const Search = (props) => {
     }
 
 
-    const url = `http://localhost:5000/searchProducts?search=${search}`
+    const url = `https://boiling-escarpment-47375.herokuapp.com/searchProducts?search=${search}`
 
     useEffect(() =>
         fetch(url)

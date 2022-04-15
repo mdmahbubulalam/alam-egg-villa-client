@@ -39,7 +39,7 @@ const Comments = (props) => {
         }
 
         //const review = commentReview.sort((a,b) => new Date(a) < new Date(b) ? 1 : -1)
-        const url = `http://localhost:5000/addComments`
+        const url = `https://boiling-escarpment-47375.herokuapp.com/addComments`
         fetch(url, {
             method:'POST',
             headers : {
@@ -55,9 +55,14 @@ const Comments = (props) => {
         })
     };
 
+    useEffect(() => {
+        setTimeout(() => {
+            setValue()
+        }, 1000)
+    })
    
 
-    const url = 'http://localhost:5000/allComments/'+id
+    const url = 'https://boiling-escarpment-47375.herokuapp.com/allComments/'+id
 
     useEffect(() => {
         fetch(url)
@@ -85,7 +90,7 @@ const Comments = (props) => {
                         <div className="mb-3">
                             <p className='text-start m-0'>Write a review</p> 
                             <textarea type="text" className="form-control" value={value} {...register("comment", { required: true })}  rows="3"></textarea>
-                            {errors.comment && <span>Review required</span>}
+                            {errors.comment && <span className='text-danger'>Review required</span>}
                         </div>
                         <button type="submit" className="btn btn-color">Submit</button>
                     </form>
@@ -94,10 +99,7 @@ const Comments = (props) => {
             
                 <p className='fs-5 fw-bolder'>For write a review, please <Link to="/login" className='text-decoration-none register-text '>login</Link> first</p>
             
-}
-
-
-         
+            }        
             
             { 
             

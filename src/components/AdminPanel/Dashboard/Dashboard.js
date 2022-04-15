@@ -22,16 +22,22 @@ const Dashboard = () => {
     const totalSum = totalPrice.reduce((partialSum, a) => partialSum + a, 0);
     
 
-    const ordersUrl = 'http://localhost:5000/orders'
+    const ordersUrl = 'https://boiling-escarpment-47375.herokuapp.com/orders'
     useEffect(() => {
-        fetch(ordersUrl)
+        fetch(ordersUrl, {
+            method:'GET',
+            headers : {
+              'content-type' : 'application/json',
+              'authorization': `Bearer ${sessionStorage.getItem('token')}`
+            },
+          })
         .then(res => res.json())
         .then(data => {
             setOrders(data)
         })
     },[])
 
-    const shipmentUrl = 'http://localhost:5000/allShipment'
+    const shipmentUrl = 'https://boiling-escarpment-47375.herokuapp.com/allShipment'
 
     useEffect(() => {
     //fetch(shipmentUrl)

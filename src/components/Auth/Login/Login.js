@@ -2,8 +2,8 @@ import React, { useContext, useEffect, useState } from 'react';
 import Header from '../../Header/Header';
 import './Login.css';
 import { BsGoogle } from "react-icons/bs";
-import { initializeApp } from "firebase/app";
-import { getAuth, signInWithPopup, GoogleAuthProvider, signOut, signInWithEmailAndPassword, updateProfile } from "firebase/auth";
+import { firebase ,initializeApp } from "firebase/app";
+import { signInWithPopup, signOut, signInWithEmailAndPassword, updateProfile, getAuth, GoogleAuthProvider } from "firebase/auth";
 import firebaseConfig from '../firebase-config';
 import { UserContext } from '../../../App';
 import { Link } from 'react-router-dom';
@@ -11,15 +11,15 @@ import { useHistory } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 
 const app = initializeApp(firebaseConfig);
+
+
+
 const provider = new GoogleAuthProvider();
 const auth = getAuth();
 
 const Login = (props) => {
   const [loggedInUser, setLoggedInUser] = useContext(UserContext);
-  
-
     const {adminUsers} = props;
-
     let history = useHistory();
     let location = useLocation();
     let { from } = location.state || { from: { pathname: "/" } }
@@ -67,6 +67,7 @@ const Login = (props) => {
         const email = error.email;
         // The AuthCredential type that was used.
         const credential = GoogleAuthProvider.credentialFromError(error);
+        
         // ...
       });
 

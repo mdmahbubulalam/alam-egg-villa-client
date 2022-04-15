@@ -8,7 +8,7 @@ const AdminUser = () => {
     const [successMessage, setSuccessMessage] = useState('');
 
     let count = 1
-    const url = 'http://localhost:5000/adminUsers/'
+    const url = 'https://boiling-escarpment-47375.herokuapp.com/adminUsers'
     useEffect(() => {
         fetch(url)
         .then(res => res.json())
@@ -16,7 +16,7 @@ const AdminUser = () => {
     },[])
 
     const handleAdminUserDelete = (id) => {
-        const url = `http://localhost:5000/deleteAdminUser/${id}`;
+        const url = `https://boiling-escarpment-47375.herokuapp.com/deleteAdminUser/${id}`;
         fetch(url,{
             method:'DELETE'
           }) 

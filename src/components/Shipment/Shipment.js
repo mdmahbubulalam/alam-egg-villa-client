@@ -14,7 +14,7 @@ const Shipment = (props) => {
         history.push('/orders')
     }
     const onSubmit = data => {
-        const url = `http://localhost:5000/addShipment`
+        const url = `https://boiling-escarpment-47375.herokuapp.com/addShipment`
         fetch(url, {
             method:'POST',
             headers : {
@@ -28,7 +28,7 @@ const Shipment = (props) => {
           });
     };
 
-    const url = 'http://localhost:5000/shipment?email='+loggedInUser.email
+    const url = 'https://boiling-escarpment-47375.herokuapp.com/shipment?email='+loggedInUser.email
 
   useEffect(() => {
     fetch(url, {
@@ -46,14 +46,6 @@ const Shipment = (props) => {
   const handleUpdateShipmentInfo = (shipmentId) => {
     history.push(`/updateShipment/${shipmentId}`)
   }
-
-  
-    // <form onSubmit={handleSubmit(onSubmit)}>
-    //     <input defaultValue="test" {...register("example")} />
-    //     <input {...register("exampleRequired", { required: true })} />
-    //     {errors.exampleRequired && <span>This field is required</span>}
-    //     <input type="submit" />
-    //   </form>
   
     return (
         <>

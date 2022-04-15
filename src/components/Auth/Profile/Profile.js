@@ -8,8 +8,9 @@ const Profile = () => {
     const productImage = orders?.orderedProducts?.map(orderedProduct => orderedProduct.image)
 
 
-    const url = 'http://localhost:5000/ordersByUser?email='+loggedInUser.email
+    const url = 'https://boiling-escarpment-47375.herokuapp.com/ordersByUser?email='+loggedInUser.email
 
+  
     useEffect(() => {
       fetch(url, {
         method:'GET',
@@ -20,19 +21,22 @@ const Profile = () => {
 
       })
       .then(res => res.json())
-      .then(data => setOrders(data))
+      .then(data => {
+        data.sort((a,b) => new Date(a) < new Date(b) ? 1 : -1)
+        setOrders(data)
+      })
     },[])
 
     return (
         <div className='container' style={{ minHeight:'30vh'}}>
             <div className="row">
                 {
-                   orders.length && loggedInUser.email ?
+                     orders.length && loggedInUser.email ?
                   
                   <div className="col-md-12 mt-5">
                   <p className='text-center'>
-                    Wellcome, <strong style={{color:'#1F8B76'}}>{loggedInUser.userName}</strong><br />
-                    You have ordered {orders.map(order => order.orderedProducts.length)} products.
+                    Congratulations , <strong style={{color:'#1F8B76'}}>{loggedInUser.userName}</strong> !!! <br />
+                    You have ordered some products.
                   </p> 
                   <table class="table bg-light table-responsive border">
                         <thead>

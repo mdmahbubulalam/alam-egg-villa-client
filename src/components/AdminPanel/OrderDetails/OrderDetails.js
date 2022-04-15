@@ -9,7 +9,7 @@ const OrderDetails = () => {
     const [status, setStatus] = useState('');
 
     
-    const url = 'http://localhost:5000/orders/'+orderId
+    const url = 'https://boiling-escarpment-47375.herokuapp.com/orders/'+orderId
     useEffect(() => {
         fetch(url, {
             method:'GET',

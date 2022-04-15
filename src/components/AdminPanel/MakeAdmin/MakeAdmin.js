@@ -1,33 +1,41 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { useHistory } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import SideBar from '../SideBar/SideBar';
 
 const MakeAdmin = () => {
-    const { register, handleSubmit, watch, formState: { errors } } = useForm();
+    const { register, handleSubmit, formState: { errors } } = useForm();
     const [successMessage, setSuccessMessage] = useState('');
-    const [enteredText, setEnteredText] = useState(''); 
-    const history = useHistory();
+    const [value, setValue] = useState(); 
 
     const onSubmit = data => {
+
         const adminUser = {
             adminEmail : data.email,
             date: new Date().toLocaleString()
         }
-        const url = `http://localhost:5000/addAdminUser`
+       
+        const url = `https://boiling-escarpment-47375.herokuapp.com/addAdminUser`
         fetch(url, {
             method:'POST',
             headers : {
                 'content-type' : 'application/json'
             },
-            body : JSON.stringify(adminUser)
-        })
-        .then(res => res.json())
-        .then(data => {
-            setSuccessMessage('Admin user created successfully')
-        })
-    };
+                body : JSON.stringify(adminUser)
+            })
+            .then(res => res.json())
+            .then(data => {
+                setSuccessMessage('Admin user created successfully')
+                setValue('')
+            })
+        };
+
+    useEffect(() => {
+        setTimeout(() => {
+            setValue()
+        }, 1000)
+    })
+   
     return (
         <div className='container '>
             <div className='row'>
@@ -50,7 +58,7 @@ const MakeAdmin = () => {
                         <h5 className='text-success text-center'>{successMessage}</h5>
                             <span>Email</span> 
                             <div class="col">
-                                <input type="email" className="form-control"  {...register("email", { required: true })} placeholder='admin@eggvilla.com'/>
+                                <input type="email" value={value} className="form-control"  {...register("email", { required: true })} placeholder='admin@eggvilla.com'/>
                                 {errors.email && <span className='text-danger'>email is required</span>}
                             </div>
                             <div class="col">
