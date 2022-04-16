@@ -42,8 +42,6 @@ function App() {
   const [adminUsers, setAdminUsers] = useState([]);
   const [cart,setCart] = useState(cartFromLocalStorage);
   const [products, setProducts] = useState([]);
-  const [oldProducts, setOldProducts] = useState([]);
-  const [discountPrice, setDiscountPrice] = useState([]);
   const [loggedInUser, setLoggedInUser] = useState({})
 
   const url = 'https://boiling-escarpment-47375.herokuapp.com/products'
@@ -53,21 +51,6 @@ function App() {
     .then(res => res.json())
     .then(data =>{data.sort((a,b) => new Date(a) < new Date(b) ? 1 : -1)
      setProducts(data)} )
-  },[])
-
-  useEffect(() => {
-    fetch(url)
-    .then(res => res.json())
-    .then(data =>{data.sort((a,b) => b.discount - a.discount)
-      setDiscountPrice(data)} )
-  },[])
-
-  
-
-  useEffect(() => {
-    fetch(url)
-    .then(res => res.json())
-    .then(data => setOldProducts(data))
   },[])
 
   
@@ -120,7 +103,7 @@ function App() {
       <Switch>
       
           <Route path="/home">
-            <Home onAdd={onAdd} products={products} discountPrice={discountPrice} oldProducts={oldProducts} />
+            <Home onAdd={onAdd} products={products} />
           </Route>
           <Route path="/shop">
             <Shop onAdd={onAdd}/>
@@ -159,7 +142,7 @@ function App() {
             <OrderDetails/>
           </PrivateRoute>
           <Route exact path="/">
-            <Home onAdd={onAdd} products={products} discountPrice={discountPrice} oldProducts={oldProducts} />
+            <Home onAdd={onAdd} products={products} />
           </Route>
           {
             !loggedInUser.isSingnedIn &&

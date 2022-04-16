@@ -11,7 +11,7 @@ const Search = (props) => {
 
     const history = useHistory();
     const handleProductDetails =(productId)=> {
-        history.push(`/details/${productId}`) 
+        history.push(`/details=${productId}`) 
     }
 
 
