@@ -70,8 +70,8 @@ const Products = (props) => {
                         <div className='text-center image'>
                             <img src={product.image} alt="image" className='w-75 img-responsove'/>
                         </div>
-                        <div className='text-center pb-2'>
-                            <p>
+                        <div className='text-center pb-2 '>
+                            <p className='text-responsive'>
                                <span className='name-text'>{product.productName}</span> <br />
                                <span className='amount-text'>{product.amount} pieces</span> <br />
                                <span className='price-text'>৳ {product.price}</span><br />
@@ -120,7 +120,7 @@ const Products = (props) => {
                             <img src={product.image} alt="image" className='w-75'/>
                         </div>
                         <div className='text-center pb-2'>
-                            <p>
+                            <p className='text-responsive'>
                                <span className='name-text'>{product.productName}</span> <br />
                                <span className='amount-text'>{product.amount} pieces</span> <br />
                                <span className='price-text'>৳ {product.price}</span><br />  
@@ -161,7 +161,7 @@ const Products = (props) => {
                             <img src={product.image} alt="image" className='w-75'/>
                         </div>
                         <div className='text-center pb-2'>
-                            <p>
+                            <p className='text-responsive'>
                                <span className='name-text'>{product.productName}</span> <br />
                                <span className='amount-text'>{product.amount} pieces</span> <br />
                                <span className='price-text'>৳ {product.price}</span><br /> 

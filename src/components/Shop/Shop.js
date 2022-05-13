@@ -4,6 +4,7 @@ import { BsCart, BsSearch } from "react-icons/bs";
 import ShopBanner from '../Banner/ShopBanner';
 import ReactPaginate from 'react-paginate';
 import { BallTriangle } from 'react-loader-spinner';
+import EidMubarakBannerAd from '../BannerAd/EidMubarakBannerAd/EidMubarakBannerAd';
 
 const Shop = (props) => {
     const {onAdd } = props;
@@ -103,11 +104,11 @@ const Shop = (props) => {
                 products.map(product => 
                     <div className='product-card col-lg-3  col-md-6 col-sm-12 col-12 '>
                         <div className='single-card'>
-                            <div className='text-center image'>
-                                <img src={product.image} alt="image" className='w-75'/>
+                            <div className='text-center '>
+                                <img src={product.image} alt="image" className='w-75 image'/>
                             </div>
                             <div className='text-center pb-2'>
-                                <p>
+                                <p className='text-responsive'>
                                 <span className='name-text'>{product.productName}</span> <br />
                                 <span className='amount-text'>{product.amount} pieces</span> <br />
                                 <span className='price-text'>৳ {product.price}</span><br />

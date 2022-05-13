@@ -84,10 +84,13 @@
     font-weight: 700;
 }
 
+.image{
+  height: fit-content;
+}
+
 @media screen and (max-width: 768px) {
   .image{
-    margin: 60px;
-    padding: 60px;
+    height: fit-content;
   }
   
 }

@@ -1,0 +1,33 @@
+.banner{
+    background-image: url('https://i.ibb.co/RbV8GZY/banner-img.jpg');
+    width: 100%;
+    margin: auto;
+    height: 180px;
+    position: relative;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.content{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #F6DB96;
+    text-align: center;
+    padding-top: 10px;
+    overflow: hidden;
+}
+
+.text2 {
+    color: #F6DB96;
+    text-shadow: 0 0 20px #FFFEEF;
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+}
+
+.text1 {
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+}

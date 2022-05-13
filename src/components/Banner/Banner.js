@@ -1,6 +1,7 @@
 import Carousel from 'nuka-carousel';
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import EidMubarakBannerAd from '../BannerAd/EidMubarakBannerAd/EidMubarakBannerAd';
 import './Banner.css'
 
 const Banner = () => {
