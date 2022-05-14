@@ -13,11 +13,12 @@ const Banner = () => {
       };
 
     return (
-        <div>
+        <div className='mt-5'>
             <Carousel
             autoplay={true}
             autoplayReverse={true}
             wrapAround={true}
+
             >
                 <div className='banner-image-one'>
                     <div className='text'>
