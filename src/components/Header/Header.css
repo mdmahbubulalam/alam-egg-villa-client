@@ -82,8 +82,15 @@
   .nav-text{
     font-weight: bold;
   }
+  .cart-responsive{
+    width:550px;
+  }
+  
   @media screen and (max-width: 1000px) {
 
+    .cart-responsive{
+      width:460px;
+    }
     .responsive{
       display: flex;
       align-items: center;
@@ -92,5 +99,13 @@
     .input-box{
         width: 100%;
     }
+}
+
+@media only screen and (max-width: 500px) {
+
+  .cart-responsive{
+    width:350px;
+  }
+
 }
 

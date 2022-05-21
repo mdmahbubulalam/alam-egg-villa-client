@@ -101,13 +101,13 @@ const Header = (props) => {
                         {/* <span className='user-icon-style' onClick={handleLogin}><BiUser/></span> */}
                             {
                                 cart.length===0 ?
-                                <div class="dropdown-menu dropdown-menu-start" aria-labelledby="dropdownMenuButton1"><p className='text-center text-info'>Cart is empty</p></div>
+                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton1"><p className='text-center text-info'>Cart is empty</p></div>
                                 
                                 :
-                                <div class="dropdown-menu dropdown-menu-start" aria-labelledby="dropdownMenuButton1">
-                                <div style={{width:'550px'}}>
-                                    <table class="table table-borderless">
-                                        <thead className='border'>
+                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton1">
+                                <div className='cart-responsive'>
+                                    <table class="table table-borderless  align-middle">
+                                        <thead className='border a'>
                                             <tr>
                                                 <th className='product-name-font'>Product Name</th>
                                                 <th  className='product-name-font'>Price</th>
@@ -141,7 +141,7 @@ const Header = (props) => {
                             <span className="user-icon-style dropdown-toggle d-flex align-items-center" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
                             <BiUser/>
                             </span>
-                            <ul class="dropdown-menu dropdown-menu-start" aria-labelledby="dropdownMenuButton2">
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton2">
                                 {
                                     loggedInUser.isSingnedIn ?
                                     <div>
